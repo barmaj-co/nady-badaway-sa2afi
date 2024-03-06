@@ -1,0 +1,42 @@
+body {
+    direction: rtl;
+    text-align: right;
+}
+
+.form-floating>label {
+    left: unset !important;
+    right: 0;
+}
+
+.row>* {
+    margin-top: unset !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+.level-element{
+    margin-top: -.5rem !important;
+}
+
+.level-element label{
+    font-size: 10pt;
+}
+
+.level-element .form-floating>.form-control-plaintext:focus, 
+.level-element .form-floating>.form-control-plaintext:not(:placeholder-shown), 
+.level-element .form-floating>.form-control:focus, 
+.level-element .form-floating>.form-control:not(:placeholder-shown){
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}

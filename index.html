@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسابقة قران نادى بدواى الثقافي</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/logins/login-7/assets/css/login-7.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="bg-light p-3 p-md-4 p-xl-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
+                    <div class="card border border-light-subtle rounded-4">
+                        <div class="card-body p-3 p-md-4 p-xl-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-5">
+                                        <!-- <div class="text-center mb-4">
+                          <a href="#!">
+                            <img src="./assets/img/bsb-logo.svg" alt="BootstrapBrain Logo" width="175" height="57">
+                          </a>
+                        </div> -->
+                                        <h4 class="text-center">تسجيل مسابقة القران الكريم رمضان 2024</h4>
+                                        <h6 class="text-center text-secondary"> نادى بدواى الثقافي</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <form
+                                action="https://docs.google.com/forms/d/e/1FAIpQLSfB3u4cUXkpD6zU9WVgIuVwzuaH2BhTuG8Xh82QBCIOw1JngQ/formResponse">
+                                <div class="row gy-3 overflow-hidden  pt-1">
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" name="entry.375728973" id="name"
+                                                placeholder="اسم المتسابق رباعي" required>
+                                            <div class="invalid-feedback">
+                                                You must agree before submitting.
+                                            </div>
+                                            <label for="name" class="form-label">الاسم</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" min="10" max="25"
+                                                name="entry.1028258565" id="age" placeholder="العمر" required>
+                                            <label for="age" class="form-label">العمر</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" name="entry.1230553320" id="mohfez"
+                                                placeholder="اسم المحفظ" required>
+                                            <label for="mohfez" class="form-label">المحفظ</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" min="10" class="form-control" name="entry.1258833119"
+                                                id="phone" value="" placeholder="0123456789" required>
+                                            <label for="phone" class="form-label">رقم الهاتف</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" name="entry.633042281" id="address"
+                                                value="" placeholder="العنوان" required>
+                                            <label for="address" class="form-label">العنوان</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 level-element">
+                                        <label for="level" class="form-label text-secondary">اختر المستوى</label>
+                                        <div class="form-floating mb-3">
+                                            <select class="form-control" name="entry.1526192343" required>
+                                                <option value="القران">القران كامل</option>
+                                                <option value="نصف القران">نصف القران</option>
+                                                <option value="ربع القران">ربع القران</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="d-grid">
+                                            <button class="btn bsb-btn-xl btn-primary" type="submit">تسجيل</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+
+            saveInfo();
+            function saveInfo() {
+                $.ajax({
+                    url: 'https://docs.google.com/forms/d/e/1FAIpQLSfB3u4cUXkpD6zU9WVgIuVwzuaH2BhTuG8Xh82QBCIOw1JngQ/formResponse',
+                    method: 'POST',
+                    data: {
+                        'entry.375728973': 'اسلام',
+                        'entry.1028258565': '22',
+                        'entry.1230553320': 'جمال',
+                        'entry.1258833119': '1234567890',
+                        'entry.633042281': 'بدواي',
+                        'entry.1526192343': 'القران'
+                    },
+                    success: function (response) {
+                        console.log('Form submitted successfully:', response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error submitting form:', error);
+                    }
+                });
+
+
+            }
+        })()
+    </script>
+</body>
+
+</html>
