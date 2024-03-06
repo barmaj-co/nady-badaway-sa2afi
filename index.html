@@ -20,8 +20,36 @@
     <script>
         var submitted = false;
         function onSubmit() {
-            $('#loader-wrapper').removeClass('hidden');
-            $('form').submit();
+            if(validateForm()){
+                $('#loader-wrapper').removeClass('hidden');
+                $('form').submit();
+            }
+
+        }
+
+        function validateForm() {
+            if ($('#name').val().trim() === '') {
+                alert('يرجى ادخال اسم المتسابق');
+                return false; 
+            }
+            if ($('#age').val().trim() === '') {
+                alert('يرجى ادخال العمر');
+                return false; 
+            }
+            if ($('#mohfez').val().trim() === '') {
+                alert('يرجى ادخال اسم المحفظ');
+                return false; 
+            }
+            if ($('#phone').val().trim() === '') {
+                alert('يرجى ادخال رقم الهاتف');
+                return false; 
+            }
+            if ($('#address').val().trim() === '') {
+                alert('يرجى ادخال العنوان');
+                return false; 
+            }
+
+            return true; 
         }
     </script>
 
@@ -102,10 +130,12 @@
                                         <div class="form-floating mb-3">
                                             <select class="form-control" name="entry.1526192343" required>
                                                 <option value="القرآن الكريم كاملا">القرآن الكريم كاملا</option>
-                                                <option value="ثلاثة أرباع القرآن الكريم">ثلاثة أرباع القرآن الكريم</option>
+                                                <option value="ثلاثة أرباع القرآن الكريم">ثلاثة أرباع القرآن الكريم
+                                                </option>
                                                 <option value="نصف القرآن الكريم">نصف القرآن الكريم</option>
                                                 <option value="ربع القرآن الكريم">ربع القرآن الكريم</option>
-                                                <option value="ثلاثة أجزاء من القرآن الكريم">ثلاثة أجزاء من القرآن الكريم</option>
+                                                <option value="ثلاثة أجزاء من القرآن الكريم">ثلاثة أجزاء من القرآن
+                                                    الكريم</option>
                                             </select>
                                         </div>
                                     </div>
